@@ -1,0 +1,18 @@
+name: anthropic_dart
+description: Dart wrapper for Anthropic AI.
+version: 1.0.1
+repository: https://github.com/malengatiger/anthropic_dart
+
+environment:
+  sdk: ^3.3.0
+
+# Add regular dependencies here.
+dependencies:
+  dio: ^5.4.1
+  json_annotation: ^4.8.1
+
+dev_dependencies:
+  build_runner: ^2.4.8
+  json_serializable: ^6.7.1
+  lints: ^3.0.0
+  test: ^1.25.2
