@@ -33,12 +33,12 @@ class Response {
 
 @JsonSerializable(explicitToJson: true)
 class Content {
-  final String? type;
-  final String? text;
+   String? type;
+   String? text;
 
-  const Content({
-    this.type,
-    this.text,
+   Content({
+     required this.type,
+     required this.text,
   });
 
   factory Content.fromJson(Map<String, dynamic> json) =>

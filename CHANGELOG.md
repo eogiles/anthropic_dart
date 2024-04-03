@@ -1,8 +1,6 @@
 ## 1.0.0
 
-- Initial version of anthropic_dart. This version is the OG base!
+- Initial version of claude_dart_flutter. This version is the OG base!
+## 1.0.0+1
 
-## 1.0.1
-
-- Refactored hello, debug and example code
-
+- Cleaned up debug messaging

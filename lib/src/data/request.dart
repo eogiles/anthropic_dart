@@ -12,9 +12,9 @@ class Request {
 
 
    Request({
-    this.model,
-    this.maxTokens,
-    this.messages,
+     required this.model,
+     required this.maxTokens,
+     required this.messages,
   });
 
   factory Request.fromJson(Map<String, dynamic> json) =>

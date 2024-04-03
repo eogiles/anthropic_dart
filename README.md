@@ -1,6 +1,6 @@
 # Dart Anthropic API Package
 
-This Dart package provides idiomatic access to the Anthropic AI API for both Dart and Flutter applications. 
+This Dart package provides idiomatic access to the Anthropic Claude LLM's for both Dart and Flutter applications. 
 Anthropic AI is a powerful platform for artificial intelligence and machine learning tasks, and this package simplifies integration with your Dart and Flutter projects.    
 
 The package hides the messy details of the Anthropic REST API and lets you work with nice statically typed Dart classes.  
@@ -17,7 +17,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  anthropic_dart: ^1.0.1
+  claude_dart_flutter: ^1.0.0+1
 ```
 
 Then, run:
@@ -31,7 +31,7 @@ $ flutter pub get
 Import the package where you need to use it:
 
 ```dart
-import 'package:anthropic_dart/anthropic_dart.dart';
+import 'package:claude_dart_flutter/claude_dart_flutter.dart';
 ```
 
 Initialize the Anthropic API client with your API key:
@@ -73,7 +73,7 @@ You can find a simple example in the [example](example) directory of this reposi
 
 ## Issues and Feedback
 
-Please file any issues, bugs, or feature requests in the [issue tracker](https://github.com/malengatiger/anthropic_dart/issues).
+Please file any issues, bugs, or feature requests in the [issue tracker](https://github.com/malengatiger/claude_dart_flutter/issues).
 
 ## License
 

@@ -8,12 +8,12 @@ class RequestWithImages {
    String? model;
   @JsonKey(name: 'max_tokens')
    int? maxTokens;
-   List<MessagesWithImages>? messages;
+   List<MessageWithImages>? messages;
 
    RequestWithImages({
-    this.model,
-    this.maxTokens,
-    this.messages,
+    required this.model,
+     required this.maxTokens,
+     required this.messages,
   });
 
   factory RequestWithImages.fromJson(Map<String, dynamic> json) =>
@@ -23,48 +23,48 @@ class RequestWithImages {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MessagesWithImages {
+class MessageWithImages {
   final String? role;
-  final List<ContentWithImages>? content;
+  final List<dynamic>? content;
 
-  const MessagesWithImages({
-    this.role,
-    this.content,
+  const MessageWithImages({
+    required this.role,
+    required this.content,
   });
 
-  factory MessagesWithImages.fromJson(Map<String, dynamic> json) =>
-      _$MessagesWithImagesFromJson(json);
+  factory MessageWithImages.fromJson(Map<String, dynamic> json) =>
+      _$MessageWithImagesFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MessagesWithImagesToJson(this);
+  Map<String, dynamic> toJson() => _$MessageWithImagesToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class ContentWithImages {
-  final String? type;
-  final Source? source;
+class ContentWithImage {
+   String? type;
+   Source? source;
 
-  const ContentWithImages({
-    this.type,
-    this.source,
+   ContentWithImage({
+    required this.type,
+    required this.source,
   });
 
-  factory ContentWithImages.fromJson(Map<String, dynamic> json) =>
-      _$ContentWithImagesFromJson(json);
+  factory ContentWithImage.fromJson(Map<String, dynamic> json) =>
+      _$ContentWithImageFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ContentWithImagesToJson(this);
+  Map<String, dynamic> toJson() => _$ContentWithImageToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
 class Source {
-  final String? type;
+   String? type;
   @JsonKey(name: 'media_type')
-  final String? mediaType;
-  final List<int>? data;
+   String? mediaType;
+   List<int>? data;
 
-  const Source({
-    this.type,
-    this.mediaType,
-    this.data,
+   Source({
+     required this.type,
+     required this.mediaType,
+     required this.data,
   });
 
   factory Source.fromJson(Map<String, dynamic> json) =>

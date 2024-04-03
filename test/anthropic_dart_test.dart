@@ -1,9 +1,9 @@
-import 'package:anthropic_dart/anthropic_dart.dart';
+import 'package:claude_dart_flutter/claude_dart_flutter.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    final awesome = AnthropicService('apiKey');
+    final awesome = ClaudeService('apiKey');
 
     setUp(() {
       // Additional setup goes here.

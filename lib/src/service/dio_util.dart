@@ -8,34 +8,35 @@ class DioUtil {
 
   static const urlPrefix = 'https://api.anthropic.com/v1/messages';
 
-
-  Future<dynamic> sendPostRequest(
+  Future<Response> sendPostRequest(
       {required dynamic body, required dynamic headers, bool? debug}) async {
-    print('$mm 🍎🍎🍎🍎🍎 Dio sendPostRequest ... 🍎🍎🍎🍎🍎');
+    if (debug != null && debug) {
+      print('$mm 🍎🍎🍎🍎🍎 Dio sendPostRequest ... 🍎🍎🍎🍎🍎');
+    }
     try {
       Response response;
-      response = await dio
-          .post(
-            urlPrefix,
-            data: body,
-            options: Options(
-                headers: headers,
-                responseType: ResponseType.json),
-            onReceiveProgress: (count, total) {
-              print('$mm onReceiveProgress: count: $count total: $total');
-            },
-            onSendProgress: (count, total) {
-              print('$mm onSendProgress: count: $count total: $total');
-            },
-          )
-          .timeout(const Duration(seconds: 300));
-      print(
-          '$mm .... network POST response, 💚status code: ${response.statusCode} 💚💚');
-      return response.data;
-    } catch (e) {
+      response = await dio.post(
+        urlPrefix,
+        data: body,
+        options: Options(headers: headers, responseType: ResponseType.json),
+        onReceiveProgress: (count, total) {
+          if (debug != null && debug) {
+            print('$mm onReceiveProgress: count: $count total: $total');
+          }
+        },
+
+      ).timeout(const Duration(seconds: 300));
+      if (debug != null && debug) {
+        print(
+            '$mm .... network POST response, 💚status code: ${response.statusCode} 💚💚');
+        print('${response.data}');
+      }
+
+      return response;
+    } catch (e, s) {
       print('$mm .... network POST error response, '
           '👿👿👿👿 $e 👿👿👿👿');
-      print(e);
+      print('$s');
       rethrow;
     }
   }

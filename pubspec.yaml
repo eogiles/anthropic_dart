@@ -1,7 +1,7 @@
-name: anthropic_dart
-description: Dart wrapper for Anthropic AI.
-version: 1.0.1
-repository: https://github.com/malengatiger/anthropic_dart
+name: claude_dart_flutter
+description: Enables an idiomatic Dart api for Anthropic LLM's. For Dart and Flutter apps
+version: 1.0.0
+repository: https://github.com/malengatiger/claude_dart_flutter
 
 environment:
   sdk: ^3.3.0
@@ -10,6 +10,7 @@ environment:
 dependencies:
   dio: ^5.4.1
   json_annotation: ^4.8.1
+  http: ^1.2.1
 
 dev_dependencies:
   build_runner: ^2.4.8

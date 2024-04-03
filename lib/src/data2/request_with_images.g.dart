@@ -11,7 +11,7 @@ RequestWithImages _$RequestWithImagesFromJson(Map<String, dynamic> json) =>
       model: json['model'] as String?,
       maxTokens: json['max_tokens'] as int?,
       messages: (json['messages'] as List<dynamic>?)
-          ?.map((e) => MessagesWithImages.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MessageWithImages.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -22,29 +22,27 @@ Map<String, dynamic> _$RequestWithImagesToJson(RequestWithImages instance) =>
       'messages': instance.messages?.map((e) => e.toJson()).toList(),
     };
 
-MessagesWithImages _$MessagesWithImagesFromJson(Map<String, dynamic> json) =>
-    MessagesWithImages(
+MessageWithImages _$MessageWithImagesFromJson(Map<String, dynamic> json) =>
+    MessageWithImages(
       role: json['role'] as String?,
-      content: (json['content'] as List<dynamic>?)
-          ?.map((e) => ContentWithImages.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      content: json['content'] as List<dynamic>?,
     );
 
-Map<String, dynamic> _$MessagesWithImagesToJson(MessagesWithImages instance) =>
+Map<String, dynamic> _$MessageWithImagesToJson(MessageWithImages instance) =>
     <String, dynamic>{
       'role': instance.role,
-      'content': instance.content?.map((e) => e.toJson()).toList(),
+      'content': instance.content,
     };
 
-ContentWithImages _$ContentWithImagesFromJson(Map<String, dynamic> json) =>
-    ContentWithImages(
+ContentWithImage _$ContentWithImageFromJson(Map<String, dynamic> json) =>
+    ContentWithImage(
       type: json['type'] as String?,
       source: json['source'] == null
           ? null
           : Source.fromJson(json['source'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ContentWithImagesToJson(ContentWithImages instance) =>
+Map<String, dynamic> _$ContentWithImageToJson(ContentWithImage instance) =>
     <String, dynamic>{
       'type': instance.type,
       'source': instance.source?.toJson(),
