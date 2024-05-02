@@ -13,7 +13,7 @@ class ClaudeService {
   late DioUtil dioUtil;
   late HttpUtil httpUtil;
 
-  final String defaultModel = "claude-3-opus-20240229";
+  final String defaultModel = "claude-3-haiku-20240307";
 
   ClaudeService(this.apiKey, {this.model}) {
     dioUtil = DioUtil(du.Dio());
@@ -33,23 +33,23 @@ class ClaudeService {
         messages: [
           Message(role: 'user', content: 'Hello Anthropic!'),
         ]);
-    return _sendRequest(req.toJson(), debug: true);
+    return _sendRequestToAnthropic(req.toJson(), debug: true);
   }
 
   Future<Response> sendRequest({required Request request, bool? debug}) async {
     request.model ??= defaultModel;
     request.maxTokens ??= 1024;
-    return _sendRequest(request.toJson(), debug: debug);
+    return _sendRequestToAnthropic(request.toJson(), debug: debug);
   }
 
   Future<Response> sendRequestWithImages(
       {required RequestWithImages request, bool? debug}) async {
     request.model ??= defaultModel;
     request.maxTokens ??= 1024;
-    return _sendRequest(request.toJson(), debug: debug);
+    return _sendRequestToAnthropic(request.toJson(), debug: debug);
   }
 
-  Future<Response> _sendRequest(dynamic body, {bool? debug}) async {
+  Future<Response> _sendRequestToAnthropic(dynamic body, {bool? debug}) async {
 
     late Response response;
     var headers = {
